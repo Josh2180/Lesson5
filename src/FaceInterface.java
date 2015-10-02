@@ -10,6 +10,7 @@ public class FaceInterface extends PApplet {
     GButton button3;
     GButton button4;
     float x,y;
+    float R,G,B;
     
     public void setup() {
         setSize(400,400);
@@ -17,12 +18,12 @@ public class FaceInterface extends PApplet {
         f=new Face(this,200,200);
         button1=new GButton(this, 22,20,80,30);
         button1.setText("Move Face");
-        button1=new GButton(this, 199,20,80,30);
-        button1.setText("Resize Face");
-        button1=new GButton(this, 217,20,80,30);
-        button1.setText("Cange Color");
-        button1=new GButton(this, 311,20,80,30);
-        button1.setText("Set Mood");
+        button2=new GButton(this, 119,20,80,30);
+        button2.setText("Resize Face");
+        button3=new GButton(this, 217,20,80,30);
+        button3.setText("Cange Color");
+        button4=new GButton(this, 311,20,80,30);
+        button4.setText("Set Mood");
     }
     
     public void handleButtonEvents(GButton button, GEvent event){
@@ -32,10 +33,26 @@ public class FaceInterface extends PApplet {
             f.erase();
             f.move(x,y);
         }
+        if(button==button2){
+            
+        }
+        if(button==button3){
+            R=Float.parseFloat(JOptionPane.showInputDialog(this,"Enter new red: "));
+            G=Float.parseFloat(JOptionPane.showInputDialog(this,"Enter new green: "));
+            B=Float.parseFloat(JOptionPane.showInputDialog(this,"Enter new blue: "));
+            f.setColor(R, G, B);
+            f.erase();
+        }
+        if(button==button4){
+            
+        }
     }
     
     public void draw(){
         f.draw();
+    }
+    public static void main(String[] args) {
+        PApplet.main("FaceInterface");
     }
 
 }

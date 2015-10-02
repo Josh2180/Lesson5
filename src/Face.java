@@ -1,10 +1,11 @@
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import processing.core.PApplet;
 
 public class Face {
 
-    private float xpos, ypos, radius;
+    private float xpos, ypos, radius, r=255, g=0, b=0;
     private Color color;
 
     private PApplet pen;
@@ -19,9 +20,9 @@ public class Face {
 
     public void draw() {
         pen.stroke(0);
-        pen.fill(color.getRed(), color.getGreen(), color.getBlue());
+        pen.fill(r,g,b);
         drawCircle(xpos, ypos, radius, radius);
-        pen.fill(255, 255, 255);
+        pen.fill(b,r,g);
         drawCircle(xpos - radius / 5, ypos - radius / 5, radius / 4, radius / 4);
         drawCircle(xpos + radius / 5, ypos - radius / 5, radius / 4, radius / 4);
         drawLine(xpos - .2 * radius, ypos + .3 * radius, xpos + .20 * radius, ypos + .3 * radius);
@@ -41,5 +42,18 @@ public class Face {
         pen.fill(255);
         pen.noStroke();
         pen.ellipse(xpos, ypos, radius + 5, radius + 5);
+    }
+    
+    public void move(int x,int y){
+        x-=25;
+        y-=25;
+        xpos=x;
+        ypos=y;
+    }
+    
+    public void setColor(float red,float green,float blue){
+        r=red;
+        g=green;
+        b=blue;
     }
 }
